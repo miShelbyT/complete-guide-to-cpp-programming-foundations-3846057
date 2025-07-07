@@ -6,11 +6,16 @@
 #include <cstdint>
 
 #define MAX_AMMO 500
-#define DEBUG
+#define DEBUG 
+// constant variable using pre-processor macro directive
+// not the best practice because of lack of type checking
 
 int main(){
     int32_t ammo = MAX_AMMO / 5;
     uint8_t health_items = 5;
+
+    const int PLAYER_COUNT = 5; // constant variable with type checking
+    // also scope encapsulation is enforced
 
     #ifdef DEBUG
         std::cout << "[DEBUG] Starting game simulation..." << std::endl;
