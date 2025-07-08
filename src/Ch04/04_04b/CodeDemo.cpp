@@ -12,19 +12,30 @@ using TimePoint = std::chrono::time_point<Clock>;
 using Duration = std::chrono::duration<double>;
 
 int main(){
-    TimePoint start, end;
-    Duration elapsed_seconds;
+    // memory pointers dynamically allocate space
+    TimePoint *start, *end;
+    Duration *elapsed_seconds = new Duration();
     std::string input;
 
-    start = Clock::now();
+    start = new TimePoint(Clock::now());
 
     std::cout << "Type 'start' as quickly as you can and hit ENTER: " << std::flush;
     std::cin >> input;
 
-    end = Clock::now();
-    elapsed_seconds = end - start;
+    end = new TimePoint(Clock::now());
+    *elapsed_seconds = *end - *start;
 
-    std::cout << "Reaction time: " << elapsed_seconds.count() << "s" << std::endl;
+    // std::cout << "Reaction time: " << (*elapsed_seconds).count() << "s" << std::endl;
+    // PEMDAS helps force the compiler to find the value of *elapsed_seconds before .count(). Normally, dot operator comes before * deregulator operator
+
+    std::cout << "Reaction time: " << elapsed_seconds->count() << "s" << std::endl;
+    // clean alternative to parenthesis. note that we removed the deregulator operator
+
+    delete start;
+    delete end;
+    delete elapsed_seconds;
+    // delete operator calls a special destructor function, need to delete to prevent memory leaks
+
     
     std::cout << std::endl << std::endl;
     return 0;
