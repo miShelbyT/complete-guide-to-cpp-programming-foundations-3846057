@@ -3,24 +3,18 @@
 // The String Class, by Eduardo Corpeño 
 
 #include <iostream>
-#include <cstring>
+#include <string>
+// there aren't a lot of reasons to use the cstring class unless we need to write code compatible with C. the C++ string class handles memory management for us and no need to keep track of terminating characters!
 
 int main(){
-    const size_t LENGTH = 50;
-    char racer1[] = "Speedy";
-    char racer2[LENGTH];
-    char raceResult[LENGTH * 2];
-
-    strncpy(racer2, "Lightning", sizeof(racer2) - 1);
-    racer2[sizeof(racer2) - 1] = '\0';
+    std::string racer1 = "Speedy";
+    std::string racer2 = "Lightning McQueen";
+    std::string raceResult;
 
     std::cout << "Racer 1: " << racer1 << std::endl;
     std::cout << "Racer 2: " << racer2 << std::endl;
 
-    strncpy(raceResult, "And the winner is ", sizeof(raceResult) - 1);
-    raceResult[sizeof(raceResult) - 1] = '\0';
-
-    strncat(raceResult, racer1, sizeof(raceResult) - strlen(raceResult) - 1);
+    raceResult = "And the winner is... " + racer2; // + is an operation overload. the string class uses + to concatenate instead of adding numbers together
 
     std::cout << raceResult << std::endl;
 
