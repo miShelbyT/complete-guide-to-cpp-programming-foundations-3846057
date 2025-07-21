@@ -22,6 +22,17 @@ int main(){
         i++;
     } while (i < playerScores.size());
     std::cout << std::endl;
+
+    
+    // greet the user
+    std::string name;
+    std::cout << "What is your name? ";
+    std::getline(std::cin, name);
+
+    if(name.empty()) {
+        std::cout << "Please enter a name.\n";
+    } else 
+        std::cout << "Hello " << name << ", nice to meet you.\n";
     
     std::cout << std::endl << std::endl;
     return (0);
