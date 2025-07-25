@@ -12,8 +12,9 @@
 #include <algorithm>
 
 class Inventory{
+   // -- prototypes only
 public:
-    // Default Constructor -- prototypes only
+    // Default Constructor
     Inventory();
 
     // Overloaded Constructor
@@ -29,7 +30,7 @@ public:
     void removeItem(const std::string& item);
 
     // Access item by index
-    std::string getItem(int index) const;
+    std::string getItem(int index) const; // reminder that const means that data should not be able to be mutated from within this function
 
     // Get number of items in the inventory
     int getItemCount() const;
