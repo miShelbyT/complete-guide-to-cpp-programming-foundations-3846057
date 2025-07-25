@@ -19,14 +19,14 @@ public:
     // Destructor
     ~Inventory();
 
-    // Add item to inventory
-    void addItem(const std::string& item);
+    // Add item to inventory - overloading the operator to make the method make semantic sense. All operators must return a value: we will return a reference to the Inventory class.
+    Inventory& operator+=(const std::string& item);
 
     // Remove item from inventory
-    void removeItem(const std::string& item);
+    Inventory& operator-=(const std::string& item);
 
-    // Access item by index
-    std::string getItem(int index) const;
+    // Access item by index i.e., [2] - returns a string of the item.
+    std::string operator[](int index) const;
 
     // Get number of items in the inventory
     int getItemCount() const;
