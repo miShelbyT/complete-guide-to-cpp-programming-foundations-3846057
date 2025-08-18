@@ -20,6 +20,10 @@ int main(){
     std::cout << "Enemy ";
     enemy.printPosition();
 
+    GameEntity<float> enemy2(10.1f, 20.5f);  // Position with floats
+    std::cout << "Another Enemy ";
+    enemy2.printPosition();
+
     std::cout << std::endl << std::endl;
     return 0;
 }

@@ -16,6 +16,14 @@ int main(){
     std::cout << size_in_bits('f') << std::endl;   // Character
     std::cout << size_in_bits(32.1f) << std::endl; // Float
     std::cout << size_in_bits(32.1) << std::endl;  // Double
+
+    std::cout << "=========================" <<std::endl;
+    std::cout << size_in_bits((short)5) << std::endl; // Short
+    std::cout << size_in_bits((long)123456789) << std::endl; // Long
+    std::cout << size_in_bits(123456789L) << std::endl; // Long
+    std::cout << size_in_bits("hello") << std::endl; // length of String
+    std::cout << size_in_bits(std::string("hello")) << std::endl; // String
+    std::cout << size_in_bits(true) << std::endl; // Boolean
     
     std::cout << std::endl << std::endl;
     return 0;
